@@ -1,0 +1,42 @@
+<h1> Create A new laptop </h1>
+
+<%= form_for(@laptop) do |f|%>
+
+
+  <%= f.label :color %>
+  <%= f.text_field :color %>
+  <br><br>
+
+  <%= f.label :condition %>
+  <%= f.text_field :condition %>
+  <br><br>
+
+  <%= f.label :price %>
+  <%= f.number_field :price %>
+  <br><br>
+
+
+  <p> Select a exist Brand: </p>
+  <div>
+    <%= f.collection_select :brand_id , Brand.all, :id, :name  %>
+  </div>
+
+  <p> Or create a new Brand: </p>
+  <div>
+    <%= f.fields_for :brand do |b| %>
+    <%= b.label :name %>
+    <%= b.text_field :name %>
+    <%end%>
+  </div>
+
+
+
+
+
+
+
+
+  <br><br>
+  <%= f.submit "Sign Up" %>
+  <br>
+  <%end%>

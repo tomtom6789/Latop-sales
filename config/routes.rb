@@ -12,6 +12,6 @@ Rails.application.routes.draw do
 
 
   resources :reviews
-  resources :ice_creams
+  resources :laptops
   resources :users
 end 
