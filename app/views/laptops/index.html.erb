@@ -1,0 +1,9 @@
+<h1> All laptops </h1>
+
+<ul>
+<% @laptops.each do |laptop| %>
+
+   <li> Brand: <%= link_to laptop.brand.name, brand_path(laptop) %> -  Condition <%= laptop.condition %>  -  Color: <%= laptop.color %>  -  Price: <%= laptop.price %></li><br>
+   <%= link_to "Write a review", new_laptop_review_path(laptop) %>
+    <%end%>
+</ul>

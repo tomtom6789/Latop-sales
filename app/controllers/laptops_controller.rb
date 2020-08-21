@@ -1,6 +1,10 @@
 class LaptopsController < ApplicationController
 
 
+    def index 
+        @laptops = Laptop.all
+    end 
+
     def new 
         @laptop = Laptop.new 
         @laptop.build_brand
@@ -15,6 +19,10 @@ class LaptopsController < ApplicationController
         else 
             render :new 
         end 
+    end 
+
+    def show 
+        @laptop = Laptop.find_by_id(params[:id])
     end 
 
 

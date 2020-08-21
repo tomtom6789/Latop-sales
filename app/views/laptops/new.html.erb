@@ -1,5 +1,7 @@
 <h1> Create A new laptop </h1>
 
+<%= render partial: 'layouts/errors', locals: {object: @laptop} %>
+
 <%= form_for(@laptop) do |f|%>
 
 
@@ -18,7 +20,7 @@
 
   <p> Select a exist Brand: </p>
   <div>
-    <%= f.collection_select :brand_id , Brand.all, :id, :name  %>
+    <%= f.collection_select :brand_id , Brand.all, :id, :name, include_blank: 'Select One' %>
   </div>
 
   <p> Or create a new Brand: </p>
