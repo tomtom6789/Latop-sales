@@ -29,10 +29,10 @@ class ReviewsController < ApplicationController
 
         @review = current_user.reviews.build(review_params)
 
-        if @review.save!
+        if @review.save
             redirect_to review_path(@review)
         else 
-            redirect_to :new
+            render :new
         end 
     end 
 

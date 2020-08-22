@@ -1,7 +1,18 @@
 
+<%= display_header(@review) %>
 <%= render partial: 'layouts/errors', locals: {object: @review} %>
 
-<%= form_for([@review]) do |f| %>
+
+<%= form_for(@review) do |f| %>
+    <% if params[:laptop_id] %>
+        <%= f.hidden_field :laptop_id%>
+    <%else%>
+      <div>
+        <%= f.label :laptop_id, "Select an Laptop" %>
+        <%= f.collection_select :laptop_id, Laptop.all, :id, :color_and_brand, include_blank: true %>
+      </div>
+    <%end%>
+<br><br>
 
 <%= f.label :title  %>
 <%= f.text_field :title  %>
@@ -16,8 +27,6 @@
 <br><br>
 
 
-<%= f.hidden_field :laptop_id %>
-<br><br>
 
-<%= f.submit %>
+<%= f.submit  %>
 <%end%>

@@ -2,8 +2,10 @@ class LaptopsController < ApplicationController
 
 
     def index 
-        @laptops = Laptop.all
+        @laptops = Laptop.order_by_prices
     end 
+
+
 
     def new 
         @laptop = Laptop.new 
@@ -14,6 +16,7 @@ class LaptopsController < ApplicationController
     def create
         @laptop = Laptop.new(laptop_params)
         @laptop.user_id = session[:user_id]
+
         if @laptop.save
             redirect_to laptop_path(@laptop)
         else 
@@ -25,6 +28,11 @@ class LaptopsController < ApplicationController
         @laptop = Laptop.find_by_id(params[:id])
     end 
 
+    def destroy 
+        @laptop = Laptop.find_by_id(params[:id])
+        @laptop.destroy 
+        redirect_to laptops_path
+    end 
 
 
     private 

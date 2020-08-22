@@ -1,7 +1,12 @@
-<h1> All the reviews </h1>
+<% if @laptop %>
+  <h1>Reviews for <%= @laptop.brand_name%> - <%= @laptop.condition%></h1>
+<% else %>
+  <h1>All the Reviews </h1>
+<% end %>
+
 
 <ul>
 <% @reviews.each do |review| %>
-<li> <%= review.laptop.condition %> - <%= review.title %> - <%= review.stars %></li>
+<li> <%= review.laptop.brand.name %> - <%= link_to review.laptop.condition, review_path(review) %> - <%= review.title %> - <%= review.stars %></li>
 <%end%>
 </ul>
