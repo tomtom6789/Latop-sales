@@ -5,6 +5,6 @@
 <% @laptops.each do |laptop| %>
 
    <li> Brand: <%= link_to laptop.brand.name, brand_path(laptop) %> -  Condition <%= laptop.condition %>  -  Color: <%= laptop.color %>  -  Price: <%= laptop.price %> - <%= link_to( "More details", laptop_path(laptop)) %></li><br>
-   <%= link_to "Write a review", new_laptop_review_path(laptop) %>
+                <%= link_to "Write a review", new_laptop_review_path(laptop) %><br>
     <%end%>
 </ul>

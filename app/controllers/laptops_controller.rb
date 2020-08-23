@@ -25,9 +25,6 @@ class LaptopsController < ApplicationController
         end 
     end 
 
-    def show 
-        @laptop = Laptop.find_by_id(params[:id])
-    end 
 
 
     def edit 
@@ -47,6 +44,21 @@ class LaptopsController < ApplicationController
         @laptop.destroy
         redirect_to laptops_path
     end 
+    
+
+
+    def show 
+        @laptop = Laptop.find_by_id(params[:id])
+    end 
+
+   
+
+    def expensive
+        @laptop = Laptop.most_expensive 
+
+    end 
+
+  
 
     private 
 
