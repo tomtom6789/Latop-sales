@@ -1,4 +1,4 @@
 class Brand < ApplicationRecord
-    has_many :laptops 
+    has_many :laptops, dependent: :destroy
   
 end

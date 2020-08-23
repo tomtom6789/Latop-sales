@@ -1,2 +1,10 @@
 
-Condition <%= @laptop.condition %>  -  Color: <%= @laptop.color %>  -  Price: $<%= @laptop.price %>
+Condition: <%= @laptop.condition %>
+    Color: <%= @laptop.color %>  
+    Price: $<%= @laptop.price %>
+           <%= link_to( "Delete" , laptop_path(@laptop), method: 'delete') %>
+           <%= link_to( "Edit" , edit_laptop_path ) %>
+
+
+
+

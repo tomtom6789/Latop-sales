@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   resources :laptops do 
     resources :reviews, only: [:new, :index]
   end 
+
+
   resources :users
   resources :brands
 end 

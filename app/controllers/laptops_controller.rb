@@ -1,4 +1,5 @@
 class LaptopsController < ApplicationController
+    # before_action :redirect_if_not_logged_in
 
 
     def index 
@@ -28,12 +29,24 @@ class LaptopsController < ApplicationController
         @laptop = Laptop.find_by_id(params[:id])
     end 
 
-    def destroy 
+
+    def edit 
         @laptop = Laptop.find_by_id(params[:id])
-        @laptop.destroy 
-        redirect_to laptops_path
     end 
 
+
+    def update 
+        @laptop = Laptop.find_by_id(params[:id])
+        @laptop.update(laptop_params)
+        redirect_to laptop_path(@laptop)
+    end 
+
+
+    def destroy 
+        @laptop = Laptop.find_by_id(params[:id])
+        @laptop.destroy
+        redirect_to laptops_path
+    end 
 
     private 
 
