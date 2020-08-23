@@ -7,7 +7,7 @@ class Laptop < ApplicationRecord
 
 
     validates :condition, presence: true 
-    # validate :not_a_duplicate
+    validate :not_a_duplicate
     
     
     # scope :order_by_ratings, -> {joins(:reviews).group(:id).order('avg(stars) desc')}
@@ -27,11 +27,11 @@ class Laptop < ApplicationRecord
     end 
 
 
-    # def not_a_duplicate
-    #     if Laptop.find_by(color: color, brand_id: brand_id )
-    #         errors.add(:color, "has already been added for thet brand" )
-    #     end 
-    # end 
+    def not_a_duplicate
+        if Laptop.find_by(color: color, brand_id: brand_id )
+            errors.add(:color, "has already been added for thet brand" )
+        end 
+    end 
 
     def color_and_brand 
         "#{color} - #{brand.try(:name)}"

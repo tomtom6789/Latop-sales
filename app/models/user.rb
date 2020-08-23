@@ -8,5 +8,14 @@ class User < ApplicationRecord
     validates :username, uniqueness: true, presence: true 
   
     has_secure_password
-  
+
+
+    def self.find_or_create_with_google(auth)
+        where(username: auth.info.email).first_or_initialize do |u|
+            u.username = auth.info.email
+            u.password = SecureRandom.hex
+        end 
+    end 
+
+
 end 
