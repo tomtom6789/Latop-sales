@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get '/' => 'sessions#welcome'
+  root 'sessions#welcome'
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
@@ -15,8 +15,6 @@ Rails.application.routes.draw do
   resources :laptops do 
     resources :reviews, only: [:new, :index]
   end 
-
-
   resources :users
   resources :brands
 end 

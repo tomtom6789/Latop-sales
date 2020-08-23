@@ -2,10 +2,9 @@ class ReviewsController < ApplicationController
 
    
     def new 
-
         if @laptop = Laptop.find_by_id(params[:laptop_id])
            @review = @laptop.reviews.build
-        else 
+        else
            @review = Review.new 
         end 
     end 

@@ -1,11 +1,11 @@
 require 'pry'
 class ApplicationController < ActionController::Base
-     helper_method :current_user , :logged_id?
+     helper_method :current_user , :logged_in?
 
 
     private 
 
-    def logged_id?
+    def logged_in?
         !!session[:user_id]
     end 
 
@@ -19,6 +19,6 @@ class ApplicationController < ActionController::Base
     end 
 
     def redirect_if_not_logged_in
-        redirect_to '/' if !logged_id?
+        redirect_to '/' if !logged_in?
     end 
 end
