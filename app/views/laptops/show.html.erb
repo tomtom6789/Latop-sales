@@ -1,9 +1,9 @@
 
            <h2><%= @laptop.brand_name %></h2>
            <ul>
-<li><p> Condition: <%= @laptop.condition %></p></li>
-<li><p> Color: <%= @laptop.color %></p></li>
-<li><p> Price: $<%= @laptop.price %></p></li>
+<p> Condition: <%= @laptop.condition %></p>
+<p> Color: <%= @laptop.color %></p>
+<p> Price: $<%= @laptop.price %></p>
            <%= link_to( "Delete" , laptop_path(@laptop), method: 'delete') %> |
            <%= link_to( "Edit" , edit_laptop_path ) %>
            </ul>

@@ -7,24 +7,33 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
  <body>
-<div>
-  <% if logged_in? %>
-  User: <%= current_user.username %>
-  
-  <%= link_to "Log Out", logout_path, method: :delete %>  |
-  <%= link_to  "Add an Laptop", new_laptop_path %>  | 
-  <%= link_to "All Laptops", laptops_path %>  | 
-  <%= link_to "Add a Review", new_review_path %>  |
-  <%= link_to "All Reviews" , reviews_path %>  |
-  <%= link_to "All Brands", brands_path %> |
-  <%= link_to "Most expensive", expensive_path %> |
 
-  <% else %>
-  <%= link_to "Sign Up", signup_path %>
+ <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div>
+    <ul class="nav navbar-nav">
+    <li class="active"><a href='/'>Home</a></li>
+    <% if logged_in? %>
+  User: <%= current_user.username %>
+  <li><%= link_to "Log Out", logout_path, method: :delete %></li>
+  <li><%= link_to  "Add an Laptop", new_laptop_path %></li>
+  <li><%= link_to "All Laptops", laptops_path %></li>
+  <li> <%= link_to "Add a Review", new_review_path %></li>
+  <li><%= link_to "All Reviews" , reviews_path %> </li>
+  <li><%= link_to "All Brands", brands_path %></li>
+  <li><%= link_to "Most expensive", expensive_path %></li>
   <%end%>
-</div>
+  </ul>
+  </div>
+  </div>
+  </nav>
+<body class="text-center" >
   <%= yield %>
+  </body>
+
 </body>
 </html>

@@ -1,10 +1,9 @@
-  
-<h1> All the Laptops </h1>
+<%= display_header_brand(@brand)%>
 
-<ul>
+<div>
 <% @laptops.each do |laptop| %>
 
-   <li> Brand: <%= link_to laptop.brand.name, brand_path(laptop) %> - Price: <%= laptop.price %> - <%= link_to( "More details", laptop_path(laptop)) %></li><br>
+   Brand: <%= link_to laptop.brand.name, brand_path(laptop) %> - Price: <%= laptop.price %> - <%= link_to( "More details", laptop_path(laptop)) %><br>
               <p><%= link_to "Write a review", new_laptop_review_path(laptop) %></p><br><br>
     <%end%>
-</ul>
+</div>

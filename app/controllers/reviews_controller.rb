@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-
+    before_action :redirect_if_not_logged_in
    
     def new 
         if @laptop = Laptop.find_by_id(params[:laptop_id])

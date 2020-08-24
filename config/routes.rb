@@ -18,7 +18,9 @@ Rails.application.routes.draw do
 
 
   resources :users
-  resources :brands
+  resources :brands do 
+    resources :laptops
+  end 
   resources :reviews
 
 

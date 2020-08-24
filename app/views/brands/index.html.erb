@@ -1,6 +1,7 @@
-<h1>All brands </h1>
-<ul>
+
+<h1>All brands </h1><br><br>
+
 <% @brands.each do |brand| %>
-   <li> <%= link_to brand.name, brand_path(brand) %></li><br>
+  <h3><p><%= link_to brand.name, brand_laptops_path(brand) %></p><h3><br
     <%end%>
-</ul>
+

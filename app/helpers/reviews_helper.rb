@@ -9,5 +9,16 @@ module ReviewsHelper
         end
     end 
 
+    def display_header_index(review)
+        if @laptop 
+            content_tag(:h1, "#{@laptop.brand_name} - #{@laptop.condition}")
+        else 
+            content_tag(:h1, 'All the Reviews')
+        end 
+    end 
+          
+
+
+
 
 end

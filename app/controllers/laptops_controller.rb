@@ -1,10 +1,16 @@
 class LaptopsController < ApplicationController
-    # before_action :redirect_if_not_logged_in
+    before_action :redirect_if_not_logged_in
 
 
     def index 
-        @laptops = Laptop.order_by_prices
+        if @brand = Brand.find_by_id(params[:brand_id])
+           @laptops = @brand.laptops
+        else 
+           @laptops = Laptop.order_by_prices
+        end 
     end 
+
+    
 
     def new 
         @laptop = Laptop.new 
