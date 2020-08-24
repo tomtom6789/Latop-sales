@@ -1,8 +1,6 @@
 
+<h2> Brand: <%= @brand.name %> </h2><br>
+ <%= link_to( "Edit" , edit_brand_path ) %> -  <%= link_to( "Delete" , brand_path(@brand), method: 'delete') %>
 
 
-
-<%= @brand.name %>
-<%= link_to( "Edit" , edit_brand_path ) %>
-<%= link_to( "Delete" , brand_path(@brand), method: 'delete') %>
 

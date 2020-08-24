@@ -11,12 +11,14 @@
  <body>
 <div>
   <% if logged_in? %>
+  User: <%= current_user.username %>
+  
   <%= link_to "Log Out", logout_path, method: :delete %>  |
   <%= link_to  "Add an Laptop", new_laptop_path %>  | 
   <%= link_to "All Laptops", laptops_path %>  | 
   <%= link_to "Add a Review", new_review_path %>  |
   <%= link_to "All Reviews" , reviews_path %>  |
-  <%= link_to "All Brands", brands_path %> 
+  <%= link_to "All Brands", brands_path %> |
   <%= link_to "Most expensive", expensive_path %> |
 
   <% else %>

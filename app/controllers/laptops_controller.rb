@@ -6,8 +6,6 @@ class LaptopsController < ApplicationController
         @laptops = Laptop.order_by_prices
     end 
 
-
-
     def new 
         @laptop = Laptop.new 
         @laptop.build_brand
@@ -52,11 +50,10 @@ class LaptopsController < ApplicationController
     end 
 
    
-
-    def expensive
-        @laptop = Laptop.most_expensive 
-
+    def expensive 
+        @laptop = Laptop.most_expensive
     end 
+
 
   
 

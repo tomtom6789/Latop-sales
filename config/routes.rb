@@ -10,21 +10,26 @@ Rails.application.routes.draw do
 
 
 
+
   delete '/logout', to: "sessions#destroy"
 
   get '/auth/:provider/callback' => 'sessions#omniauth'
+
+
 
   resources :users
   resources :brands
   resources :reviews
 
-  
-  get '/laptops/most_expensive', to: 'laptops#expensive', as: 'expensive'
 
+  get '/laptops/most_expensive', to: 'laptops#expensive', as: 'expensive'
 
   resources :laptops do 
     resources :reviews, only: [:new, :index]
   end 
+
+  
+
 
 
 

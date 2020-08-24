@@ -7,6 +7,6 @@
 
 <ul>
 <% @reviews.each do |review| %>
-<li> <%= review.laptop.brand.name %> - <%= link_to review.laptop.condition, review_path(review) %> - <%= review.title %> - <%= review.stars %></li>
+<li><p> <%= review.laptop.brand_name %> - Condition: <%= review.laptop.condition %> - Rate: <%= link_to review.stars, review_path(review)%>*</p></li>
 <%end%>
 </ul>
