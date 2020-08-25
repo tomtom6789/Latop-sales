@@ -1,5 +1,6 @@
 class LaptopsController < ApplicationController
     before_action :redirect_if_not_logged_in
+    before_action :set_laptop, only: [:edit, :update, :show, :destroy]
 
 
     def index 
@@ -9,8 +10,6 @@ class LaptopsController < ApplicationController
            @laptops = Laptop.order_by_prices
         end 
     end 
-
-    
 
     def new 
         @laptop = Laptop.new 
@@ -32,19 +31,17 @@ class LaptopsController < ApplicationController
 
 
     def edit 
-        @laptop = Laptop.find_by_id(params[:id])
+    
     end 
 
 
     def update 
-        @laptop = Laptop.find_by_id(params[:id])
         @laptop.update(laptop_params)
         redirect_to laptop_path(@laptop)
     end 
 
 
     def destroy 
-        @laptop = Laptop.find_by_id(params[:id])
         @laptop.destroy
         redirect_to laptops_path
     end 
@@ -52,8 +49,9 @@ class LaptopsController < ApplicationController
 
 
     def show 
-        @laptop = Laptop.find_by_id(params[:id])
+     
     end 
+
 
    
     def expensive 
@@ -67,5 +65,9 @@ class LaptopsController < ApplicationController
 
     def laptop_params
         params.require(:laptop).permit(:color, :condition, :price, :brand_id, brand_attributes: [:name])
+    end 
+
+    def set_laptop
+        @laptop = Laptop.find_by_id(params[:id])
     end 
 end

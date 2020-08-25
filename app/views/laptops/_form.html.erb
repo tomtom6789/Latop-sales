@@ -14,12 +14,12 @@
   <br><br>
 
 
-  <p> Select a exist Brand: </p>
+  <h4> Select an exist Brand: </h4>
   <div>
     <%= f.collection_select :brand_id , Brand.all, :id, :name, include_blank: 'Select One' %>
   </div>
 
-  <p> Or create a new Brand: </p>
+  <h4> Or create a new Brand: </h4>
   <div>
     <%= f.fields_for :brand do |b| %>
     <%= b.label :name %>

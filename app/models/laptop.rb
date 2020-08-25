@@ -17,7 +17,7 @@ class Laptop < ApplicationRecord
     scope :new_laptops, -> {where('condition = ?', 'new')}
     scope :most_expensive, -> {where(price: Laptop.maximum('price')).last}
     
-
+   
 
     def brand_attributes=(attributes)
         if !attributes[:name].blank?
@@ -26,7 +26,7 @@ class Laptop < ApplicationRecord
     end 
 
     def color_check 
-        if color.split(" ").count >= 2
+        if color.split(" ").count > 3 
             errors.add(:color, "must be 1 or 2 words")
         end 
     end 

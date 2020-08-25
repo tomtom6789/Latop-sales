@@ -25,12 +25,6 @@ class SessionsController < ApplicationController
     end 
  
 
-
-    def destroy 
-       session.destroy 
-       redirect_to root_path
-    end 
-
     def omniauth    
          @user = User.find_or_create_with_google(auth)
          if @user.save
@@ -40,7 +34,12 @@ class SessionsController < ApplicationController
            flash[:error] = "There's already an account with that email address"
            redirect_to login_path
          end 
-    end  
+    end 
+    
+    def destroy 
+        session.destroy 
+        redirect_to root_path
+     end 
       
 
     private 
