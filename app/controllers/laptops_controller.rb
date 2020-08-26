@@ -3,13 +3,22 @@ class LaptopsController < ApplicationController
     before_action :set_laptop, only: [:edit, :update, :show, :destroy]
 
 
-    def index 
+    def index   
         if @brand = Brand.find_by_id(params[:brand_id])
            @laptops = @brand.laptops
         else 
-           @laptops = Laptop.order_by_prices
+           @laptops = Laptop.order_by_prices.search(params[:search])
+        #    binding.pry
         end 
     end 
+    
+
+
+    def show 
+     
+    end 
+
+
 
     def new 
         @laptop = Laptop.new 
@@ -48,10 +57,6 @@ class LaptopsController < ApplicationController
     
 
 
-    def show 
-     
-    end 
-
 
    
     def expensive 
@@ -64,7 +69,7 @@ class LaptopsController < ApplicationController
     private 
 
     def laptop_params
-        params.require(:laptop).permit(:color, :condition, :price, :brand_id, brand_attributes: [:name])
+        params.require(:laptop).permit(:color, :condition, :price, :brand_id, :search, brand_attributes: [:name])
     end 
 
     def set_laptop

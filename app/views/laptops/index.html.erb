@@ -1,13 +1,18 @@
 <%= display_header_brand(@brand)%>
 
+<h4> Search by Brand: </h4>
+<%= form_tag(laptops_path, method: :get) do %>
+    <%= text_field_tag(:search, params[:search]) %>
+    <%= submit_tag ("Search") %>
+<%end%>
+<br><br>
+
 <div>
 <% @laptops.each do |laptop| %>
 
    Brand: <%= link_to laptop.brand.name, brand_path(laptop) %> - Price: <%= laptop.price %> - <%= link_to( "More details", laptop_path(laptop)) %><br>
               <p><%= link_to "Write a review", new_laptop_review_path(laptop) %></p><br><br>
     <%end%>
-
-
-  
-
 </div>
+
+

@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   get '/laptops/most_expensive', to: 'laptops#expensive', as: 'expensive'
 
   resources :laptops do 
-    resources :reviews, only: [:new, :index]
+    resources :reviews
   end 
 
   

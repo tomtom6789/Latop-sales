@@ -17,8 +17,8 @@ class Laptop < ApplicationRecord
     scope :new_laptops, -> {where('condition = ?', 'new')}
     scope :most_expensive, -> {where(price: Laptop.maximum('price')).last}
     
-   
-
+  
+    
     def brand_attributes=(attributes)
         if !attributes[:name].blank?
             self.brand = Brand.find_or_create_by(attributes)
@@ -40,8 +40,26 @@ class Laptop < ApplicationRecord
         brand.try(:name)
     end 
 
-    
+    def self.search(search)
+        if search 
+            brand = Brand.find_by(name: search)
+            if brand
+                self.where(brand_id: brand)
+            else 
+                all
+            end 
+        else 
+           all
+        end 
+    end 
+
+
   
 
 
-end
+
+    
+  
+
+end 
+
