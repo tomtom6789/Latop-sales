@@ -11,8 +11,13 @@
 <% @laptops.each do |laptop| %>
 
    Brand: <%= link_to laptop.brand.name, brand_path(laptop) %> - Price: <%= laptop.price %> - <%= link_to( "More details", laptop_path(laptop)) %><br>
-              <p><%= link_to "Write a review", new_laptop_review_path(laptop) %></p><br><br>
+              <p><%= link_to "Write a review", new_laptop_review_path(laptop) %></p>
+              <p><% laptop.reviews.each do |laptop_review| %></p>
+              <p> <%=laptop_review.stars%> stars</p><br>
+              <%end%>
     <%end%>
 </div>
+
+
 
 

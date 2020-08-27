@@ -7,6 +7,7 @@ module LaptopsHelper
             content_tag(:h1, "All the Laptops") 
         end
     end 
-    
 
-end
+    
+end 
+

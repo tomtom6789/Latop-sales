@@ -8,7 +8,6 @@ class LaptopsController < ApplicationController
            @laptops = @brand.laptops
         else 
            @laptops = Laptop.order_by_prices.search(params[:search])
-        #    binding.pry
         end 
     end 
     

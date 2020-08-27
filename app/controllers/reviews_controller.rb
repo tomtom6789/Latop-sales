@@ -11,7 +11,9 @@ class ReviewsController < ApplicationController
 
 
     def show
-        @review = Review.find_by_id(params[:id])
+        # @laptop = Laptop.find_by_id(params[:laptop_id])
+        # @review = @laptop.reviews.find_by_id(params[:id])
+          @review = Review.find_by(params[:id])
     end 
 
 
